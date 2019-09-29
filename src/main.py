@@ -68,7 +68,7 @@ while pointer < len(code):
                 continue
         if instruction in 'ɑɒ':
             # truthy jump back to ɑ
-            if instuction in 'ɑ':
+            if instruction in 'ɑ':
                 truejump = pointer
             if instruction in 'ɒ':
                 a = stack.pop()
@@ -79,9 +79,9 @@ while pointer < len(code):
                     pointer = truejump
         if instruction in 'ɘe':
             # falsy jump back to ɑ
-            if instuction in 'ɘ':
+            if instruction in 'ɘ':
                 falsejump = pointer
-            if instuction in 'e':
+            if instruction in 'e':
                 a = stack.pop()
                 if (isinstance(a, int) or isinstance(a, float)) and a <= 0:
                     pointer = falsejump
