@@ -3,12 +3,14 @@ import stack as s
 import instructions as inst
 import math
 
-# Command: python.exe .\main.py [code]
+# Command: python.exe .\main.py [file]
 '''
 Go to folder: cd "D:\Programming\GitHub Repos\International-Phonetic-Esoteric-Language\src"
-Run: python.exe .\main.py ""
+Run: python.exe .\main.py [file]""
 '''
-code = list(sys.argv[1])
+
+file = sys.argv[1]
+code = list(open(file).read())
 stack = s.Stack()
 
 pointer = 0
@@ -68,7 +70,7 @@ while pointer < len(code):
             # truthy jump back to ɑ
             if instuction in 'ɑ':
                 truejump = pointer
-            if instuction in 'ɒ':
+            if instruction in 'ɒ':
                 a = stack.pop()
                 if (isinstance(a, int) or isinstance(a, float)) and a > 0:
                     pointer = truejump
